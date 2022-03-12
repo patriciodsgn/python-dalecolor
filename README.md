@@ -25,6 +25,8 @@ Colors (background):
     print( uxi.f("hello im a text with green background", "GREEN"))
     print( uxi.f("hello im a cyan text in bold", "bold", "cyan"))
 
+![alt text](https://github.com/patricio-dsgn/python-console-style/blob/main/img1.png?raw=true "Title") 
+
 ___
 
 ## Jumbo
@@ -41,3 +43,5 @@ Size:
     print(uxi.jumbo("hello im a jumbo block normal", 1))
     print(uxi.jumbo("hello im a jumbo block medium", 2))
     print(uxi.jumbo("hello im a jumbo block large", 3))
+
+![alt text](https://github.com/patricio-dsgn/python-console-style/blob/main/img2.png?raw=true "Title") 
