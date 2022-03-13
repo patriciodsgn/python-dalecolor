@@ -1,4 +1,4 @@
-# UXI module for python console
+# DALECOLOR!
 
 This module is create for add styles to print elements
 
@@ -19,11 +19,11 @@ Colors (font color):
 Colors (background):
 >empty, "BLACK", "RED", "GREEN", "YELLOW", "BLUE", "PURPLE", "CYAN", "WHITE".
 
-    import python_console_style as uxi
+    import dalecolor as uxi
 
-    print( uxi.f("hello im a red text", "red"))
-    print( uxi.f("hello im a text with green background", "GREEN"))
-    print( uxi.f("hello im a cyan text in bold", "bold", "cyan"))
+    print( dc.f("hello im a red text", "red"))
+    print( dc.f("hello im a text with green background", "GREEN"))
+    print( dc.f("hello im a cyan text in bold", "bold", "cyan"))
 
 ![alt text](https://github.com/patricio-dsgn/python-console-style/blob/main/img1.png?raw=true "Title") 
 
@@ -38,10 +38,10 @@ Suport 1 parameters _integer_ for size of block
 Size:
 > empty(1), 2, 3
 
-    import python_console_style as uxi
+    import dalecolor as dc
 
-    print(uxi.jumbo("hello im a jumbo block normal", 1))
-    print(uxi.jumbo("hello im a jumbo block medium", 2))
-    print(uxi.jumbo("hello im a jumbo block large", 3))
+    print(dc.jumbo("hello im a jumbo block normal", 1))
+    print(dc.jumbo("hello im a jumbo block medium", 2))
+    print(dc.jumbo("hello im a jumbo block large", 3))
 
 ![alt text](https://github.com/patricio-dsgn/python-console-style/blob/main/img2.png?raw=true "Title") 
