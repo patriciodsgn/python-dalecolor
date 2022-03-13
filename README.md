@@ -2,6 +2,7 @@
 
 This module is create for add styles to print elements
 
+![alt text](./img0.png?raw=true "Title")
 ___
 
 ## Texts
