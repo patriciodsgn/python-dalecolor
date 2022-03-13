@@ -25,7 +25,7 @@ Colors (background):
     print( dc.f("hello im a text with green background", "GREEN"))
     print( dc.f("hello im a cyan text in bold", "bold", "cyan"))
 
-![alt text](https://github.com/patricio-dsgn/python-console-style/blob/main/img1.png?raw=true "Title") 
+![alt text](./img1.png?raw=true "Title")
 
 ___
 
@@ -44,4 +44,4 @@ Size:
     print(dc.jumbo("hello im a jumbo block medium", 2))
     print(dc.jumbo("hello im a jumbo block large", 3))
 
-![alt text](https://github.com/patricio-dsgn/python-console-style/blob/main/img2.png?raw=true "Title") 
+![alt text](./img2.png?raw=true "Title")
