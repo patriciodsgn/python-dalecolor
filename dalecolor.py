@@ -1,87 +1,62 @@
+#format to string
+import math
 
-def f(txt, a = None, b = None):
 
-    style = {
-        "normal" : 0,
-        "bold" : 1,
-        "light" : 2,
-        "italic" : 3,
-        "underline" : 4,
-        "inverse" : 5,
-        "hide" : 6,
-        "strikeout" : 7
-    }
-
-    color = {
-        "black" : 30, "BLACK": 40,
-        "red" : 31, "RED": 41,
-        "green" : 32, "GREEN": 42,
-        "yellow" : 33, "YELLOW": 43,
-        "blue" : 34, "BLUE": 44,
-        "purple" : 35, "PURPLE": 45,
-        "cyan" : 36, "CYAN": 46,
-        "white" : 37, "WHITE": 47            
-    }
+def f(txt, a = None, b = None, c = None):
+    style_font = { "normal" : 0, "bold" : 1, "weak" : 2, "italic" : 3, "underline" : 4, "inverse" : 5, "hide" : 6, "strikeout" : 7 }
+    color_font = { "black" : 30, "red" : 31, "green" : 32, "yellow" : 33, "blue" : 34, "purple" : 35, "cyan" : 36, "white" : 37 }
+    color_background = { "BLACK" : 40, "RED" : 41, "GREEN" : 42, "YELLOW" : 43, "BLUE" : 44, "PURPLE" : 45, "CYAN" : 46, "WHITE" : 47 }
     
-    
-    val_style = 0
-    val_color = 37
-    if a == None and b == None: 
-        val_style = 0
-        val_color = 37
+    clean = '\033[0;00m'
 
-    elif a != None and b == None:
-        if a in style.keys():
-            val_style = style[a]
-        if a in color.keys():
-            val_color = color[a]
+    if a == None and b == None and c == None: 
+        out = (f"\033[0;37m{txt}{clean}")
 
-    elif a != None and b != None:
-        if a in style.keys():
-            val_style = style[a]
-        if a in color.keys():
-            val_color = color[a]
-        if b in style.keys():
-            val_style = style[b]
-        if b in color.keys():
-            val_color = color[b]
+    elif a != None and b == None and c == None: 
+        if a in style_font.keys(): v1 = str(style_font[a])+';37'
+        elif a in color_font.keys(): v1 = '0;'+str(color_font[a])
+        elif a in color_background.keys(): v1 = '0;'+str(color_background[a])
+        
+        out = (f"\033[{v1}m{txt}{clean}")
+        
+    elif a != None and b != None and c == None:
+        if a in style_font.keys(): v1 = style_font[a]
+        elif a in color_font.keys(): v1 = color_font[a]
+        elif a in color_background.keys(): v1 = color_background[a]
+
+        if b in style_font.keys(): v2 = style_font[b]
+        elif b in color_font.keys(): v2 = color_font[b]
+        elif b in color_background.keys(): v2 = color_background[b]
+
+        out = (f"\033[{v1};{v2}m{txt}{clean}")
+
+    elif a != None and b != None and c != None:
+        if a in style_font.keys(): v1 = style_font[a]
+        elif a in color_font.keys(): v1 = color_font[a]
+        elif a in color_background.keys(): v1 = color_background[a]
+
+        if b in style_font.keys(): v2 = style_font[b]
+        elif b in color_font.keys(): v2 = color_font[b]
+        elif b in color_background.keys(): v2 = color_background[b]
+
+        if c in style_font.keys(): v3 = style_font[c]
+        elif c in color_font.keys(): v3 = color_font[c]
+        elif c in color_background.keys(): v3 = color_background[c]
+
+        out = (f"\033[{v1};{v2};{v3}m{txt}{clean}")
 
 
+    return out
 
-    return(f"\033[{val_style};{val_color}m{txt}\033[0;00m")
-
-
-# print(f('hola'))
-print(f('hola','CYAN'))
-# print(f('hola','bold','RED'))
-# print(f('hola','undeline','red'))
+# print testing - - - - -
+# print(f('hola !!!'))
+# print(f('hola','RED'))
+# print(f('hola','italic','GREEN'))
+# print(f('hola','cyan','weak'))
 # print(f('hola','red', '',''))
 # print(f('hola','', 'bold','RED'))
 
 
-
-    # for x in lista:
-    #     if x == None:
-    #         color = 0
-    #         style = 0
-    #     else:
-
-    #     # else:
-    #     #     style = 37
-
-
-
-# class f:
-
-
-
-
-
-# print("\033[+": "+"\033[1;34m"+" hola ")
-# print("\033[0;34m"+"hola: "+"\033[1;34m"+" hola ")
-# print("\033[0;34m"+"hola: "+"\033[1;34m"+" hola ")
-# print("\033[0;37m"+"vddv")
-# # print("0\33[0;47m"+"hola")
 
 
 
@@ -114,4 +89,114 @@ def jumbo(txt,size=1):
     
     return block
 
+
+def table(list, head = None, head_style = None, style = None, align = None, padding = None, margin = None):
+    length_cols = {}
+
+
+    # largos primera fila
+    c = 0
+    for col in list[0]:
+        length_cols[c] = len(col)
+        c += 1
+
+    for row in list:
+        c = 0
+        for col in row:
+            if len(col) > length_cols[c]:
+                length_cols[c] = len(col)
+            c += 1
+
+    if head != None:
+        c = 0
+        for row in range(len(length_cols)):
+            # print(c)
+            # c = 0
+            # for col in row:
+            if length_cols[c] < len(head[c]):
+                length_cols[c] = len(head[c])
+            c += 1
+
+        # length_elem = 0
+        # for col in row:
+        #     length_cols
+        #     if len(col) > length_elem:
+        #         length_col = length_elem
+        # print(x)
+
+    
+    # if margin == ' ':
+    #     sep = f(' ', 'normal', 'white', None)
+
+    # length_cols2 = {}
+    # print(length_cols)
+    # for x in range(len(length_cols)):
+    #     if length_cols[x]%2 != 0:
+    #         length_cols2[x] = length_cols[x]+1
+    #     else:
+    #         length_cols2[x] = length_cols[x]
+
+    # print(length_cols2)
+
+
+
+    margin_str = margin
+    padding_str = padding
+
+    # print(head)
+    if head != None:
+        row_temp = ''
+        count_col = 0
+        for c in head:
+            mult = length_cols[count_col]-len(c)
+            xs = ''
+            
+            if count_col == len(length_cols)-1: margin_str = ''
+
+            if align == None or align == 'left':
+                space = ('.'*mult)
+                row_temp += f(padding_str+(c+space+padding_str),head_style[0] ,head_style[1],head_style[2])+margin_str
+            elif align == 'rigth':
+                space = ('.'*mult)
+                row_temp += f(padding_str+(space+c+padding_str),head_style[0] ,head_style[1],head_style[2])+margin_str
+            elif align == 'center':
+                flag1 = len(c)%2 != 0 and length_cols[count_col]%2 != 0
+                flag2 = len(c)%2 == 0 and length_cols[count_col]%2 == 0
+                if flag1 == False and flag2 == False: xs = ' '
+                space = (' '*math.floor(mult/2))
+                row_temp += f((padding_str+space+c+space+padding_str+xs), head_style[0], head_style[1], head_style[2])+margin_str
+            count_col += 1
+        print(row_temp)
+
+
+    
+
+    for row in list:    
+        row_temp = ''
+        count_col = 0
+
+        margin_str = margin
+        padding_str = padding
+
+        for c in row:
+            mult = length_cols[count_col]-len(c)
+            xs = ''
+
+            if count_col == len(length_cols)-1: margin_str = ''
+
+            if align == None or align == 'left':
+                space = (' '*mult)
+                row_temp += f((padding_str+c+space+padding_str), style[0], style[1], style[2])+margin_str
+            elif align == 'rigth':
+                space = (' '*mult)
+                row_temp += f((padding_str+space+c+padding_str), style[0], style[1], style[2])+margin_str
+            elif align == 'center':
+                flag1 = len(c)%2 != 0 and length_cols[count_col]%2 != 0
+                flag2 = len(c)%2 == 0 and length_cols[count_col]%2 == 0
+                if flag1 == False and flag2 == False: xs = ' '
+                space = (' '*math.floor(mult/2))
+                row_temp += f((padding_str+space+c+space+padding_str+xs), style[0], style[1], style[2])+margin_str
+            count_col += 1
+        print(row_temp)
+    
 
