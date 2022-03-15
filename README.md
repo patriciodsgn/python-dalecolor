@@ -8,6 +8,8 @@ This module is create for add styles to print elements
 
 - Table
 
+- Clear
+
 ---
 
 ![alt text](./img0.png?raw=true "Title")
@@ -20,19 +22,21 @@ This module is create for add styles to print elements
 
 Create styles for strings with function **f()**
 
-Suport 2 **parameters** (string) at any order, **style** and **color**
+Parameters (3 at any order and empty):
 
-**Style**: empty, "normal", "bold", "light", "italic", "underline", "inverse", "hide", "strikeout"
+- for **Style**: "normal", "bold", "light", "italic", "underline", "inverse", "hide", "strikeout" (string)
+- for **Colors font**: "black", "red", "green", "yellow", "blue", "purple", "cyan", "white". (string)
+- for **Background color**: "BLACK", "RED", "GREEN", "YELLOW", "BLUE", "PURPLE", "CYAN", "WHITE". (string)
 
-**Colors (font color)**: empty, "black", "red", "green", "yellow", "blue", "purple", "cyan", "white".
-
-**Colors (background)**: empty, "BLACK", "RED", "GREEN", "YELLOW", "BLUE", "PURPLE", "CYAN", "WHITE".
+Code:
 
     import dalecolor as uxi
 
     print( dc.f("hello im a red text", "red"))
     print( dc.f("hello im a text with green background", "GREEN"))
     print( dc.f("hello im a cyan text in bold", "bold", "cyan"))
+
+Console:
 
 ![alt text](./img1.png?raw=true "Title")
 
@@ -42,9 +46,11 @@ Suport 2 **parameters** (string) at any order, **style** and **color**
 
 Create block for strings with function **jumbo()**
 
-Suport 1 **parameter** (integer) for size of block
+Parameters (1 and support empty):
 
-**Size**: empty(1), 2, 3
+- **size**: Size of block -> 1, 2, 3 (integer)
+
+Code:
 
     import dalecolor as dc
 
@@ -52,32 +58,27 @@ Suport 1 **parameter** (integer) for size of block
     print(dc.jumbo("hello im a jumbo block medium", 2))
     print(dc.jumbo("hello im a jumbo block large", 3))
 
+Console:
+
 ![alt text](./img2.png?raw=true "Title")
 
 ---
 
 ## Table
 
-pPrint tables with function **table()**
+Print tables with function **table()**
 
-Suport 7 **parameters**:
+Parameters (7 and support empty):
 
-- **demo_list** : the content (list)
+- **demo_list**: The content (list)
+- **head**: Header titles (list)
+- **head_style**: Styles for header (list) -> (style font, color font and background)
+- **style**: Styles for body (list) -> (style font, color font and background)
+- **align**: Alignment (string) -> "left", "rigth", "center"
+- **padding**: Space inside cel (string), example: " "
+- **margin**: Space outside cel (str), example: " "
 
-- **head** = header titles (list)
-
-- **head_style** = styles for header (list) -> (style font, color font and backgroud)
-
-- **style** = styles for body (list) -> (style font, color font and backgroud)
-
-- **align** = alignment (string) -> 'left', 'rigth', 'center'
-
-- **padding** = space inside cel (string), example: ' '
-
-- **margin** = space outside cel (str), example: ' '
-
-
-.
+Code:
 
     import dalecolor as dc
 
@@ -98,4 +99,22 @@ Suport 7 **parameters**:
         margin = ' - '
         )
 
+Console:
+
 ![alt text](./img3.png?raw=true "Title")
+
+---
+
+## Clear
+
+Clear console with function **clear()**
+
+Parameters (1 and support empty):
+
+- **time**: Second wait for clean console (integer)
+
+Code:
+
+    import dalecolor as dc
+
+    clear(2)
