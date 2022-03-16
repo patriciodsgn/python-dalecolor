@@ -23,12 +23,12 @@ demo_list = [
 ]
 
 dc.print_table(
-    demo_list,
+    list = demo_list,
     head = ['COL1', 'TWO', 'THREE', 'FOUR', '5'],
     head_style = ['bold', 'red', 'WHITE'],
     style = ['italic', 'yellow', 'BLUE'],
     align = 'center',
-    padding = '   ',
-    margin = ' - '
+    padding = ' ',
+    margin = ' '
     )
 

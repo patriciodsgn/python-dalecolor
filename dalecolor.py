@@ -91,6 +91,10 @@ def jumbo(txt,size=1):
 
 
 def print_table(list, head = None, head_style = None, style = None, align = None, padding = None, margin = None):
+    
+    if style == None: style = ['normal', 'white', None]
+    if head_style == None: head_style = ['normal', 'white', None]
+
     length_cols = {}
 
 
@@ -144,6 +148,8 @@ def print_table(list, head = None, head_style = None, style = None, align = None
 
     margin_str = margin
     padding_str = padding
+    if margin_str == None: margin_str = ''
+    if padding_str == None: padding_str = ''
 
     # print(head)
     if head != None:
@@ -179,6 +185,8 @@ def print_table(list, head = None, head_style = None, style = None, align = None
 
         margin_str = margin
         padding_str = padding
+        if margin_str == None: margin_str = ''
+        if padding_str == None: padding_str = ''
 
         for c in row:
             c = str(c)

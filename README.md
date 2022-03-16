@@ -68,9 +68,9 @@ Console:
 
 Print tables with function **table()**
 
-Parameters (7 and support empty):
+Parameters (7 and support all empty. Except **demo_list**):
 
-- **demo_list**: The content (list)
+- **demo_list**: The content (list) (**required**)
 - **head**: Header titles (list)
 - **head_style**: Styles for header (list) -> (style font, color font and background)
 - **style**: Styles for body (list) -> (style font, color font and background)
