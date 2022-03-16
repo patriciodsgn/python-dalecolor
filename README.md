@@ -54,9 +54,9 @@ Code:
 
     import dalecolor as dc
 
-    print(dc.jumbo("hello im a jumbo block normal", 1))
-    print(dc.jumbo("hello im a jumbo block medium", 2))
-    print(dc.jumbo("hello im a jumbo block large", 3))
+    print( dc.jumbo("hello im a jumbo block normal", 1) )
+    print( dc.jumbo("hello im a jumbo block medium", 2) )
+    print( dc.jumbo("hello im a jumbo block large", 3) )
 
 Console:
 
@@ -117,4 +117,4 @@ Code:
 
     import dalecolor as dc
 
-    clear(2)
+    dc.clear(2)
