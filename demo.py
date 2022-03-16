@@ -1,5 +1,6 @@
 import dalecolor as dc
 
+dc.clear()
 
 # print text with f()
 print( dc.f("hello im a red text", "red"))
@@ -15,13 +16,13 @@ print(dc.jumbo("hello im a jumbo block large", 3))
 
 # print list with table()
 demo_list = [
-    ['designer', 'fireman', 'dancer', 'teacher', 'doctor'],
+    [1, 'fireman', 'dancer', 'teacher', 'doctor'],
     ['red', 'green', 'yellow', 'rainbow', 'silver'],
-    ['a', 'e', 'i', 'o', 'u'],
+    [1, 'e', 'i', 'o', 'u'],
     ['one', 'two', 'three', 'eleven', 'hundred']        
 ]
 
-dc.table(
+dc.print_table(
     demo_list,
     head = ['COL1', 'TWO', 'THREE', 'FOUR', '5'],
     head_style = ['bold', 'red', 'WHITE'],
@@ -30,7 +31,4 @@ dc.table(
     padding = '   ',
     margin = ' - '
     )
-
-
-
 

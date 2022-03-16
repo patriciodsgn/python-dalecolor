@@ -90,19 +90,21 @@ def jumbo(txt,size=1):
     return block
 
 
-def table(list, head = None, head_style = None, style = None, align = None, padding = None, margin = None):
+def print_table(list, head = None, head_style = None, style = None, align = None, padding = None, margin = None):
     length_cols = {}
 
 
     # largos primera fila
     c = 0
     for col in list[0]:
+        col = str(col)
         length_cols[c] = len(col)
         c += 1
 
     for row in list:
         c = 0
         for col in row:
+            col = str(col)
             if len(col) > length_cols[c]:
                 length_cols[c] = len(col)
             c += 1
@@ -148,9 +150,9 @@ def table(list, head = None, head_style = None, style = None, align = None, padd
         row_temp = ''
         count_col = 0
         for c in head:
+            c = str(c)
             mult = length_cols[count_col]-len(c)
             xs = ''
-            
             if count_col == len(length_cols)-1: margin_str = ''
 
             if align == None or align == 'left':
@@ -179,9 +181,9 @@ def table(list, head = None, head_style = None, style = None, align = None, padd
         padding_str = padding
 
         for c in row:
+            c = str(c)
             mult = length_cols[count_col]-len(c)
             xs = ''
-
             if count_col == len(length_cols)-1: margin_str = ''
 
             if align == None or align == 'left':
